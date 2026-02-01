@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  default:
+    desc: Displays all available tasks.
+    cmds:
+      - task --list-all --sort none
+
+  environment:check:
+    desc: Check required tools are available for this environment.
+    cmds:
+      - task --version
+      - hadolint --version
+      - kind --version
+      - kubectl version --client=true
+      - starship --version
+      - watchexec --version
