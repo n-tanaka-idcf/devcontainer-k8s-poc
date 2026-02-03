@@ -1,0 +1,14 @@
+---
+services:
+  kubernetes:
+    build:
+      context: kubernetes/
+      dockerfile: Dockerfile
+      args:
+        - UID
+        - GID
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - .:/workspaces
